@@ -1,0 +1,9 @@
+export type StepId = 'entorno' | 'trabajo' | 'nacimiento' | 'bebe' | 'posparto';
+export type SourceReference = { id: string; title: string; url: string; article: string; consulted: string; status: 'verificado en fuente' | 'pendiente' | 'aprobado profesionalmente' };
+export type Option = { id: string; label: string; pdf: string | null; exclusive?: boolean };
+export type QuestionDefinition = { id: string; step: StepId; order: number; title: string; description: string; kind: 'single' | 'multiple' | 'text'; options: Option[]; classification: 'derecho' | 'preferencia' | 'información clínica'; references: string[]; warning?: string; optional: true; version: number };
+export type Answer = { kind: 'single'; value: string } | { kind: 'multiple'; value: string[] } | { kind: 'text'; value: string };
+export type Personal = { name: string; dni: string; dueDate: string; institution: string; companion: string; date: string };
+export type Draft = { schemaVersion: 1; contentVersion: number; personal: Personal; answers: Record<string, Answer>; notes: Record<string, string>; observations: string; step: number };
+export type DocumentSection = { title: string; paragraphs: { text: string; references: string[] }[] };
+export type PlanDocument = { personal: Personal; sections: DocumentSection[]; observations: string; references: SourceReference[] };
