@@ -24,24 +24,8 @@ Las preguntas y fuentes viven en `data/`; `lib/compose.ts` transforma respuestas
 
 Los textos se prepararon contra fuentes oficiales pero no cuentan con aprobación profesional. Revisar vigencia normativa, afirmaciones clínicas y redacción inclusiva con profesionales antes de publicar. Verificar también lector de pantalla, zoom, paginación extensa y funcionamiento físico en Safari de iOS y Chrome de Android.
 
-## Comprobaciones pendientes en este entorno
-
-Firefox de Playwright no pudo iniciar: el proceso informó que no encontraba su perfil temporal, incluso al probar otro directorio. La comprobación manual con lector de pantalla y en dispositivos físicos iOS y Android requiere realizarse antes de publicar.
-
-## Correcciones de la revisión
-
-La generación pendiente se invalida al editar, borrar, recibir cambios de otra pestaña o salir del asistente. Las pestañas sincronizan el borrador y verifican el almacenamiento antes de guardar para evitar restaurar datos borrados. Omitir una pregunta elimina también su observación.
-
-El renderizador admite selección simple, múltiple y texto, con descripciones y advertencias asociadas mediante `aria-describedby`. Las solicitudes de diálogo tienen redacción documental explícita en primera persona.
-
-El PDF incorpora Noto Sans Regular y Bold desde `public/fonts/`, con licencia SIL Open Font License incluida en `OFL.txt`; fuentes obtenidas del repositorio oficial https://github.com/notofonts/noto-fonts. La fuente conserva los diacríticos latinos y los caracteres griegos y cirílicos cubiertos. Si un carácter no tiene cobertura, se informa el problema y se conservan los datos, sin descargar un archivo con texto alterado. No se consultan servicios externos para cargar fuentes en tiempo de uso.
-
-Las pruebas de navegador se ejecutan en serie para evitar interferencias entre instancias en este entorno de escritorio.
-
-## Guardado, privacidad y CAPTCHA
+## Guardado y privacidad
 
 El asistente guarda sin demora cada cambio y cada paso en una única entrada versionada de `localStorage`. Una descarga o vista previa no modifica el borrador; se pueden editar respuestas y generar otro PDF. El indicador solo confirma el guardado cuando el navegador completó la escritura o se recuperó un borrador válido. Si no se puede leer o escribir, se puede continuar en memoria y se avisa que no hay persistencia. Si se recupera el acceso y existe otro borrador mientras hay cambios sin guardar, se conservan ambos sin sobrescribir el anterior. El botón de borrado pide confirmación y elimina únicamente los datos del asistente; los PDF descargados se eliminan por separado.
 
 Los datos permanecen en ese navegador, no se sincronizan entre dispositivos y la aplicación no los cifra. Borrar los datos del navegador puede borrar el progreso.
-
-No se incorpora CAPTCHA. La aplicación se exporta como archivos estáticos y genera el PDF en el navegador con recursos locales: generar documentos automáticamente consume recursos del dispositivo cliente, no procesamiento de un servidor propio ni de un servicio externo de PDF. Las solicitudes habituales de archivos estáticos siguen dependiendo del alojamiento. No hay cuentas, envíos ni otras operaciones de servidor que requieran CAPTCHA para este MVP.
