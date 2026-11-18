@@ -10,7 +10,7 @@ Para producir el sitio estático: `npm run build`. El directorio `out/` puede se
 
 ## GitHub Pages
 
-Una vez incorporados los cambios a `main` y completada la revisión de contenidos, elegí **Settings → Pages → Build and deployment → Source → GitHub Actions**. Después ejecutá **Publicar en GitHub Pages** desde **Actions → Run workflow**, con la rama `main` seleccionada.
+En el repositorio, seleccioná **GitHub Actions** en **Settings → Pages → Build and deployment → Source**. Ejecutá **Publicar en GitHub Pages** desde **Actions → Run workflow**, con la rama `main` seleccionada. Por defecto, la ejecución solo verifica y compila el sitio. Marcá **Publicar el sitio después de verificar la compilación** cuando se haya completado la revisión de contenidos y quieras desplegarlo.
 
 El workflow usa la ruta que informa GitHub Pages al compilar y publica `out/`. Para este repositorio, la URL predeterminada es `https://farox-coop.github.io/parto-humanizado/`. Para probar esa configuración localmente, ejecutá `NEXT_PUBLIC_BASE_PATH=/parto-humanizado npm run build` y serví el contenido de `out/` bajo `/parto-humanizado/`.
 
