@@ -2,11 +2,12 @@ import { Font } from '@react-pdf/renderer';
 import type { PlanDocument } from '@/types';
 
 export const PDF_FONT_FAMILY = 'Noto Sans';
+const fontDirectory = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/fonts`;
 Font.register({
   family: PDF_FONT_FAMILY,
   fonts: [
-    { src: '/fonts/NotoSans-Regular.ttf', fontWeight: 400 },
-    { src: '/fonts/NotoSans-Bold.ttf', fontWeight: 700 },
+    { src: `${fontDirectory}/NotoSans-Regular.ttf`, fontWeight: 400 },
+    { src: `${fontDirectory}/NotoSans-Bold.ttf`, fontWeight: 700 },
   ],
 });
 

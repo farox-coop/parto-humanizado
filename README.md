@@ -8,6 +8,12 @@ Node.js 20.9 o superior (desarrollado con Node 24) y npm. Instalá con `npm ci` 
 
 Para producir el sitio estático: `npm run build`. El directorio `out/` puede servirse con cualquier servidor de archivos estáticos, por ejemplo `python3 -m http.server 8000 --directory out`. Elegí otro puerto si el 8000 está ocupado. No uses `next start` para la exportación estática.
 
+## GitHub Pages
+
+Una vez incorporados los cambios a `main` y completada la revisión de contenidos, elegí **Settings → Pages → Build and deployment → Source → GitHub Actions**. Después ejecutá **Publicar en GitHub Pages** desde **Actions → Run workflow**, con la rama `main` seleccionada.
+
+El workflow usa la ruta que informa GitHub Pages al compilar y publica `out/`. Para este repositorio, la URL predeterminada es `https://farox-coop.github.io/parto-humanizado/`. Para probar esa configuración localmente, ejecutá `NEXT_PUBLIC_BASE_PATH=/parto-humanizado npm run build` y serví el contenido de `out/` bajo `/parto-humanizado/`.
+
 ## Verificación
 
 - `npm run typecheck`, `npm run lint` y `npm test`.
