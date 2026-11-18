@@ -62,3 +62,8 @@
 .preview-disclosure{margin:30px 0;color:#345748}
 .preview-disclosure summary{cursor:pointer;font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:3px}
 .preview-disclosure .document-preview{margin:18px 0 0;color:var(--ink)}
+
+.footer-credit{font-size:12px;letter-spacing:0}
+.footer-credit a{color:#fff;font-weight:700;letter-spacing:.08em;text-decoration:underline;text-decoration-color:#829e89;text-underline-offset:4px}
+.footer-credit a:hover{text-decoration-color:#fff}
+.footer-credit a span{display:inline;font-size:10px;letter-spacing:0}
